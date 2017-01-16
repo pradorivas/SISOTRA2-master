@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/plantillas/layout.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="body">
+        <h:outputText value="Bienvenido al Sistema  #{login.username}"/>
+        <br/><br/>
+        <h:form id="form_lista_OT">
+            <p:dataTable id="Tabla_lista_ot" value="#{ordenTrabajoBean.lista}" var="ot" emptyMessage="No hay datos de OT"
+                         style="font-size: 13px; width: 95%">
+                <p:column headerText="Codigo OT">
+                    <h:outputText value="#{ot.idOrdenT}" />
+                </p:column>
+                <p:column headerText="descripcion">
+                    <h:outputText value="#{ot.descripcion}" />
+                </p:column>
+                <p:column headerText="Estado">
+                    <h:outputText value="#{ot.estado}" />
+                </p:column>
+                <p:column headerText="">
+                    <p:commandButton value="Asignar" oncomplete="PF('dlgAsignar').show();" update=":formAsignar">
+                        <f:setPropertyActionListener target="#{ordenTrabajoBean.ordenTrabajo}" value="#{ot}"/>
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        
+        <p:dialog id="dlg" widgetVar="dlgAsignar" header="Asignar OT" showEffect="slide" 
+                  hideEffect="slide" modal="true" resizable="false" >
+            <h:form id="formAsignar">
+                <p:panelGrid columns="2" style="margin: 0 auto; font-size: 12px;">
+                    
+                    <p:outputLabel value="codigo"/>
+                    <p:inputText value="#{ordenTrabajoBean.ordenTrabajo.idOrdenT}" 
+                                 readonly="true"/>
+                    
+                    <p:outputLabel value="Area"/>
+                    <p:inputText value="#{ordenTrabajoBean.ordenTrabajo.area_emple}"
+                                 required="true" requiredMessage="Area obligatorio" placeholder="Escriba el Area"/>
+
+                    <p:commandButton value="Asignar" actionListener="#{ordenTrabajoBean.asignarOrdenTrabajo}" 
+                                     update=":form_lista_OT:Tabla_lista_ot" oncomplete="PF('dlgAsignar').hide();"/>
+                    <p:commandButton value="Cancelar" onclick="PF('dlgAsignar').hide();"
+                                     immediate="true"/>
+                </p:panelGrid>    
+                    <p:inputText type="hidden" value="#{ordenTrabajoBean.ordenTrabajo.estado}"/>
+            </h:form>
+        </p:dialog>
+    </ui:define>
+</ui:composition>
+

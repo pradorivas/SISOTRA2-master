@@ -1,0 +1,45 @@
+body {
+    background-color: gray;
+}
+.cab{
+    alignment-adjust: central;
+    text-align: center;
+    top: auto;
+    background-position: center;
+}
+#contenedor {
+    border-style:groove;
+    background-color: white;
+    width: 900px;
+    margin: 0em auto;
+}
+
+#cabecera {
+    border-bottom: solid
+}
+
+#menu {
+    float: none;
+    width: 900px;
+    alignment-adjust: central;
+}
+
+#contenido {
+    float: bottom;
+    width: 700px;
+}
+
+#pie {
+     border-top: solid;
+    clear: both;
+}
+
+.selectOneRadioColumn td{
+    border: none !important;
+}
+
+.ui-panelgrid tr,ui-panelgrid td{
+    border: none !important;
+}
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <f:view locale="#{facesContext.externalContext.requestLocale}"> 
+
+        <h:head>
+            <title>Facelet Title</title>
+        </h:head>
+        <h:body>
+            <h1>#{msjs.titulo_principal}</h1>
+
+            <h:form>
+                <h:panelGrid bodyrows="3" columns="2" >
+                    <h:outputLabel value="#{msjs.form_usuario}"/>
+                    <h:inputText value="#{login.username}"/>
+                    <h:outputLabel value="#{msjs.form_contrasena}"/>
+                    <h:inputSecret value="#{login.password}"/>
+                    <h:commandButton value="#{msjs.form_boton_ingresar}" 
+                                     action="#{login.validarCredenciales()}"
+                                     />
+                </h:panelGrid>
+            </h:form>
+
+        </h:body>
+        
+    </f:view>
+</html>
+
+
+
+
+

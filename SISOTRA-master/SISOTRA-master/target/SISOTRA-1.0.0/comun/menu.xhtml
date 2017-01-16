@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:panelGroup style="border:1px solid #ddd;">
+        <h:form>
+            <h:panelGrid columns="5" border="1" style="width: 100%;">
+                <h:commandLink action="principal" styleClass="par" style="width: 1000px;">
+                    <h:outputFormat value="#{msjs.enlace_inicio}"/>
+                </h:commandLink>
+
+                <h:commandLink value="#{msjs.enlace_registro_ot}"
+                               actionListener="#{consultaPag.confirmarAccion}"
+                               action="#{consultaPag.consultar()}"
+                               styleClass="impar">
+                    <f:attribute name="user" value="#{login.username}"/>
+                    <f:attribute name="pagina" value="1"/>
+                </h:commandLink>
+                <h:commandLink value="#{msjs.enlace_lista_ot}"
+                               actionListener="#{consultaPag.confirmarAccion}"
+                               action="#{consultaPag.consultar()}"
+                               styleClass="par">
+                    <f:attribute name="user" value="#{login.username}"/>
+                    <f:attribute name="pagina" value="2"/>
+                </h:commandLink>
+                <h:commandLink value="#{msjs.enlace_asignar_ot} "
+                               actionListener="#{consultaPag.confirmarAccion}"
+                               action="#{consultaPag.consultar()}"
+                               styleClass="impar">
+                    <f:attribute name="user" value="#{login.username}"/>
+                    <f:attribute name="pagina" value="3"/>
+                </h:commandLink>
+                <h:commandLink value="#{msjs.enlace_asignar_ot} "
+                               actionListener="#{consultaPag.confirmarAccion}"
+                               action="#{consultaPag.consultar()}"
+                               styleClass="impar">
+                    <f:attribute name="user" value="#{login.username}"/>
+                    <f:attribute name="pagina" value="4"/>
+                </h:commandLink>
+
+                <h:commandLink value="Cambiar idioma/Change Language"
+                               action="#{localeBean.cambiaLocale}" />
+                <h:commandLink value="Cerrar sesion"
+                               action="login" />
+            </h:panelGrid>
+        </h:form>
+    </h:panelGroup>
+</ui:composition>

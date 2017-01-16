@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/plantillas/layout.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="body">
+        <h:outputText value="Bienvenido al Sistema #{login.username}"/>
+        <br/><br/>
+        <h:form id="form_lista_OT">
+            <p:dataTable id="Tabla_lista_ot" value="#{ordenTrabajoBean.lista}" var="ot" emptyMessage="No hay datos de OT"
+                         style="font-size: 13px; width: 95%">
+                <p:column headerText="Codigo OT">
+                    <h:outputText value="#{ot.idOrdenT}" />
+                </p:column>
+                <p:column headerText="descripcion">
+                    <h:outputText value="#{ot.descripcion}" />
+                </p:column>
+                <p:column headerText="Estado">
+                    <h:outputText value="#{ot.estado}" />
+                </p:column>
+                <p:column headerText="Area Asignada">
+                    <h:outputText value="#{ot.area_emple}" />
+                </p:column>
+                
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>

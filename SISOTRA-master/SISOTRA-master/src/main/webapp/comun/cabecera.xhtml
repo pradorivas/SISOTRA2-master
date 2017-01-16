@@ -1,0 +1,14 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:panelGrid columns="2" styleClass="cab">
+        <h:graphicImage  url="/images/logo2.jpg" 
+                         alt="LLAMAGAS - PERU" 
+                         height="100px"/>
+        <h:outputText style="text-align: center; font-size: 36px;" 
+                      value="#{msjs.titulo}"/>
+        <br />
+        <h:outputText value="Locale: #{localeBean.lenguaje}"/>
+    </h:panelGrid>
+</ui:composition>
